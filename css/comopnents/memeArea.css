@@ -1,12 +1,22 @@
-.meme-conteiner{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+.meme-conteiner {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
+.tool-row {
+  display: flex;
+  flex-direction: row;
+  font-size: 70px;
+  width: 100%;
+}
+.tools-conteiner{
+    width: 100%;
+    border:5px solid red
 
-.tool-row{
-    display: flex;
-    flex-direction: row ;
-    font-size: 70px;
+
+}
+.my-canvas{
+    width: 100%;
+    border:5px solid red
 }

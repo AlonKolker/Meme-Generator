@@ -9,7 +9,7 @@
   </head>
   <body onload="onInit(event)">
     <!-- HEADER -->
-    <div class="gallery-backround">
+    <div class="header-backround">
       <header class="main-layout">
         <img class="logo" src="logo/LOGO.png" alt="" onclick="" />
         <nav>
@@ -27,6 +27,7 @@
         id=""
         placeholder="Enter search keyword"
       />
+      <div class="key-words">
       <a href="">funny</a>
       <a href="">animal</a>
       <a href="">bad</a>
@@ -34,15 +35,21 @@
       <a href="">happy</a>
       <a href="">sad</a>
     </div>
+    </div>
     <!-- GALLERY -->
     <div class="gallery main-layout"></div>
     <!--MEME AREA  -->
     <div class="main-layout meme-conteiner" style="display: none">
-      <canvas class="mycanvas" id="myCanvas" width="500" height="500"></canvas>
+      <canvas
+        class="my-canvas"
+        id="meme-Canvas"
+        width="500"
+        height="500"
+      ></canvas>
       <div class="tools-conteiner">
         <input
           class="textinput"
-          oninput=""
+          oninput="onTxtInput(this.value)"
           type="text"
           placeholder="Type text over here"
         />

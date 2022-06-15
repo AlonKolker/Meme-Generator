@@ -1,5 +1,3 @@
-var gKeywordSearchCountMap = {'funny': 12,'happy': 16,}
-var gImgs = [{id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat']}];
 
 function onInit(ev) {
     ev.preventDefault()
@@ -22,8 +20,11 @@ function onInit(ev) {
 
   var elGallery = document.querySelector(".gallery")
   elGallery.innerHTML = strHtml
+  elGallery.style.display = 'grid'
   var elFilterBar = document.querySelector(".filter-bar")
-  elFilterBar.style.display = 'block'
+  elFilterBar.style.display = 'flex'
+  var elDetails = document.querySelector(".my-details")
+  elDetails.style.display = 'block'
   var elMemeArea = document.querySelector('.meme-conteiner')
   elMemeArea.style.display = 'none'
 }

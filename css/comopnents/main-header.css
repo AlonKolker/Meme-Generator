@@ -2,3 +2,13 @@
     height: 46px;
     width: 100px;
 }
+
+.header-backround{
+    background-color: var(--clr1);
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
