@@ -1,0 +1,12 @@
+.meme-conteiner{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+.tool-row{
+    display: flex;
+    flex-direction: row ;
+    font-size: 70px;
+}
