@@ -1,5 +1,8 @@
-.filter-bar{
-    display: flex;
-    justify-content:space-between
-
+.filter-bar {
+  height: 6.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Montserrat-Regularontserrat;
+  font-size: 1.18rem;
 }

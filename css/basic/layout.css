@@ -4,3 +4,18 @@
   /* align-items: center; */
   margin: 0 auto;
 }
+
+
+
+.filter-bg-layout{
+height: 6.25em; ;
+background-color: white;
+margin-bottom: 2.49rem;
+}
+
+.bg-details-layout{
+width: 100%;
+background-color: white;
+margin-top: 2.49rem;
+
+}

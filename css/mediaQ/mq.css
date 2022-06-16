@@ -1,0 +1,26 @@
+@media (max-width: 640px) {
+  .meme-conteiner {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+  }
+  .my-canvas {
+    width: 100%;
+  }
+
+  .tools-conteiner {
+
+    margin-top: 3rem;
+  }
+
+
+  .gallery {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 21px;
+  }
+
+
+
+}

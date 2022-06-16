@@ -11,30 +11,39 @@
     <!-- HEADER -->
     <div class="header-backround">
       <header class="main-layout">
-        <img class="logo" src="logo/LOGO.png" alt="" onclick="" />
+        <img
+          class="logo"
+          src="logo/Layer 2.png"
+          alt=""
+          onclick="renderGallery()"
+        />
         <nav>
-          <a href="" class="a-gallery" onclick="onInit(event)">Gallery</a>
+          <a href="" class="a-gallery clean-a" onclick="renderGallery()"
+            >Gallery</a
+          >
           <span>|</span>
-          <a href="" class="a-about">About</a>
+          <a href="" class="a-about clean-a">About</a>
         </nav>
       </header>
     </div>
-    <div class="filter-bar main-layout">
-      <input
-        oninput="onSearch()"
-        type="text"
-        name=""
-        id=""
-        placeholder="Enter search keyword"
-      />
-      <div class="key-words">
-      <a href="">funny</a>
-      <a href="">animal</a>
-      <a href="">bad</a>
-      <a href="">akwrd</a>
-      <a href="">happy</a>
-      <a href="">sad</a>
-    </div>
+    <div class="filter-bg-layout">
+      <div class="filter-bar main-layout">
+        <input
+          oninput="onSearch()"
+          type="text"
+          name=""
+          id=""
+          placeholder="Enter search keyword   🔍"
+        />
+        <div class="key-words">
+          <a class="clean-a" href="">baby</a>
+          <a class="clean-a" href="">man</a>
+          <a class="clean-a" href="">animal</a>
+          <a class="clean-a" href="">dog</a>
+          <a class="clean-a" href="">happy</a>
+          <a class="clean-a" href="">cat</a>
+        </div>
+      </div>
     </div>
     <!-- GALLERY -->
     <div class="gallery main-layout"></div>
@@ -53,33 +62,111 @@
           type="text"
           placeholder="Type text over here"
         />
-        <div class="tool-row">
-          <div class="plus">+</div>
-          <div class="up">↑</div>
-          <div class="down">↓</div>
-          <div class="trash">🗑</div>
+        <div class="tool-row first-row">
+          <div class="plus icon" onclick="onAddLine()">
+            <img src="icones/add.png" alt="" />
+          </div>
+          <div class="up icon" onclick="onDownUpLine(-1)">
+            <img src="icones/arrow-upward.png" alt="" />
+          </div>
+          <div class="down icon" onclick="onDownUpLine(1)">
+            <img src="icones/down-arrow.png" alt="" />
+          </div>
+          <div class="trash icon" onclick="onLineDelete()">
+            <img src="icones/trash.png" alt="" />
+          </div>
         </div>
+        <div class="tool-row seconed-row">
+          <div class="increse-font icon" onclick="onFontSize(1)">
+            <img src="icones/increase font - icon.png" alt="" />
+          </div>
+          <div class="dec-font icon" onclick="onFontSize(-1)">
+            <img src="icones/decrease font - icon.png" alt="" />
+          </div>
+          <div class="align-left icon">
+            <img
+              src="icones/align-to-left.png"
+              alt=""
+              onclick="onAlignText('left')"
+            />
+          </div>
+          <div class="align-center icon">
+            <img
+              src="icones/center-text-alignment.png"
+              alt=""
+              onclick="onAlignText('center')"
+            />
+          </div>
+          <div class="align-right icon">
+            <img
+              src="icones/align-to-right.png"
+              alt=""
+              onclick="onAlignText('right')"
+            />
+          </div>
+        </div>
+          <select class="font-change" onclick="onChangeFont(this.value)">
+            <option value="Impact">Impact</option>
+            <option value="Serif">Serif</option>
+          </select>
+          <input
+            class="color-pick"
+            type="color"
+            id="head"
+            name="head"
+            value=""
+            oninput=" onFontColor(this.value)"
+          />
+          <label class="icon-paint">
+            <img
+              src="icones/paint-board-and-brush.png"
+              alt=""
+            />
+            <input type="color" oninput=" onFontColor(this.value)" />
+          </label>
+          <div class="icon switch-line">
+            <img src="icones/up-down.png" alt="" onclick="onSwitchLine()" />
+          </div>
+        <!-- </div> -->
+        <a
+          href="#"
+          class="download-btn"
+          onclick="downloadImg(this)"
+          download="my-awsome-meme.jpg"
+          >DOWNLOAD YOUR MEME</a
+        >
       </div>
     </div>
     <!-- MY-DETAILS -->
-    <div class="my-details main-layout">
-      <img src="" alt="" class="my-img" />
-      <div class="details-content">
-        <h2>Alon Kolker</h2>
-        <p>about me.....................................</p>
-        <div class="social">facebook</div>
-        <div class="social">linkedin</div>
-        <div class="social">github</div>
+    <div class="bg-details-layout">
+      <div class="my-details main-layout">
+        <img src="img/shrek1.jpg" alt="" class="my-img" />
+        <div class="details-content">
+          <h2>Alon Kolker</h2>
+          <p>about me.....................................</p>
+          <div class="social-conteiner">
+          <div class="social facebook-logo"><img src="icones/facebook-logo.png" alt=""></i></div>
+          <div class="social linkedin-logo"><img src="icones/linkedin-logo.png" alt=""></div>
+          <div class="social github-logo"><img src="icones/github-logo.png" alt=""></div>
+        </div>
+        </div>
       </div>
     </div>
     <!-- FOOTER -->
     <footer>
-      <div>Memegen</div>
+      <div><img
+        class="logo"
+        src="logo/Layer 2.png"
+        alt=""
+        onclick="renderGallery()"
+      /></div>
       <div>all copy rights reserved 2019</div>
     </footer>
 
+
+    <script src="https://kit.fontawesome.com/e4465711a5.js" crossorigin="anonymous"></script>
     <script src="js/memeService.js"></script>
-    <script src="js/galleryController.js"></script>
-    <script src="js/memeController.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/download.js"></script>
   </body>
 </html>

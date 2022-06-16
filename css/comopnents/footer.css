@@ -1,4 +1,9 @@
 footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: var(--clr1);
   text-align: center;
+  /* height: 12.937rem; */
+  height: 10vh;
 }

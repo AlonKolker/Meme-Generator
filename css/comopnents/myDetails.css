@@ -1,0 +1,34 @@
+.my-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.details-content {
+  height: 25vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding-block-start: 30px;
+  padding-inline-start: 30px;
+}
+
+img.my-img {
+  height: 17h;
+  width: 17vw;
+  border-radius: 50%;
+}
+
+.social-conteiner {
+    display: flex;
+    flex-direction: row;
+}
+
+.social-conteiner> *:not(:last-child){
+margin-inline-end: 40px;
+}
+
+
+.social{
+    width: 30px;
+    height: 20px;
+}

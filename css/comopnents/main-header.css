@@ -5,10 +5,27 @@
 
 .header-backround{
     background-color: var(--clr1);
+    height:4.125rem ;
 }
 header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 4.125rem;
 }
+
+
+.a-about, .a-gallery{
+    font-family: Montserrat-Regularontserrat;
+    font-size: 1.18rem;
+    color: white;
+    line-height: 60px;
+}
+
+
+
+.a-about:hover, .a-gallery:hover{
+border-bottom: 1px solid black;
+}
+
