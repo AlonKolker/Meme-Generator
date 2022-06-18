@@ -1,8 +1,49 @@
 .filter-bar {
-  height: 6.25rem;
+  height: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: Montserrat-Regularontserrat;
   font-size: 1.18rem;
+}
+.filter-bar input {
+  border: none;
+  border-width: 0;
+  box-shadow: none;
+  border-bottom: 1px solid black;
+  border-radius: 5%;
+  background-color: #dee8f3;
+  height: 30px;
+}
+
+nav.main-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.a-gallery {
+  margin-inline-end: 2rem;
+}
+.a-about,
+.a-gallery {
+  font-family: Montserrat-Regular;
+  font-size: 1.18rem;
+  color: var(--clr3);
+  line-height: 60px;
+  font-weight: 700;
+}
+
+.a-about:hover,
+.a-gallery:hover {
+  border-bottom: 1px solid black;
+}
+
+.filter-bar .key-words {
+  font-family: Montserrat-Regularontserrat;
+  font-weight: 700;
+  color: var(-);
+}
+.filter-bar .key-words a:hover {
+  background-color: rgb(181, 190, 210);
+  border-radius: 0.5rem;
 }

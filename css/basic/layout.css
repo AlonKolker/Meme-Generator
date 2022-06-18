@@ -1,21 +1,11 @@
 .main-layout {
-  width: 90vw;
-  /* display: flex; */
-  /* align-items: center; */
+  width: 1000px;
+
   margin: 0 auto;
 }
 
-
-
-.filter-bg-layout{
-height: 6.25em; ;
-background-color: white;
-margin-bottom: 2.49rem;
-}
-
-.bg-details-layout{
-width: 100%;
-background-color: white;
-margin-top: 2.49rem;
-
+.filter-bg-layout {
+  height: 3rem;
+  background-color: #deeaf7;
+  margin-bottom: 1rem;
 }

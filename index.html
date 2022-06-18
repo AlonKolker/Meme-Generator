@@ -10,20 +10,20 @@
   <body onload="onInit(event)">
     <!-- HEADER -->
     <div class="header-backround">
-      <header class="main-layout">
+      <header>
         <img
           class="logo"
-          src="logo/Layer 2.png"
+          src="logo/MAIN-LOGO.png"
           alt=""
           onclick="renderGallery()"
         />
-        <nav>
-          <a href="" class="a-gallery clean-a" onclick="renderGallery()"
+        <nav class="main-nav">
+          <a href="#" class="a-gallery clean-a" onclick="renderGallery()"
             >Gallery</a
           >
-          <span>|</span>
-          <a href="" class="a-about clean-a">About</a>
+          <a href="#" class="a-about clean-a">About</a>
         </nav>
+        <button onclick="toggleMenu(this)" class="menu-toggle">☰</button>
       </header>
     </div>
     <div class="filter-bg-layout">
@@ -36,12 +36,12 @@
           placeholder="Enter search keyword   🔍"
         />
         <div class="key-words">
-          <a class="clean-a" href="">baby</a>
-          <a class="clean-a" href="">man</a>
-          <a class="clean-a" href="">animal</a>
-          <a class="clean-a" href="">dog</a>
-          <a class="clean-a" href="">happy</a>
-          <a class="clean-a" href="">cat</a>
+          <a class="clean-a" href="#">baby</a>
+          <a class="clean-a" href="#">man</a>
+          <a class="clean-a" href="#">animal</a>
+          <a class="clean-a" href="#">dog</a>
+          <a class="clean-a" href="#">happy</a>
+          <a class="clean-a" href="#">cat</a>
         </div>
       </div>
     </div>
@@ -55,14 +55,17 @@
         width="500"
         height="500"
       ></canvas>
-      <div class="tools-conteiner">
+      <div class="tools-box">
         <input
           class="textinput"
           oninput="onTxtInput(this.value)"
           type="text"
           placeholder="Type text over here"
         />
-        <div class="tool-row first-row">
+        <div class="tools-conteiner">
+          <div class="icon switch-line">
+            <img src="icones/up-down.png" alt="" onclick="onSwitchLine()" />
+          </div>
           <div class="plus icon" onclick="onAddLine()">
             <img src="icones/add.png" alt="" />
           </div>
@@ -75,8 +78,6 @@
           <div class="trash icon" onclick="onLineDelete()">
             <img src="icones/trash.png" alt="" />
           </div>
-        </div>
-        <div class="tool-row seconed-row">
           <div class="increse-font icon" onclick="onFontSize(1)">
             <img src="icones/increase font - icon.png" alt="" />
           </div>
@@ -104,7 +105,6 @@
               onclick="onAlignText('right')"
             />
           </div>
-        </div>
           <select class="font-change" onclick="onChangeFont(this.value)">
             <option value="Impact">Impact</option>
             <option value="Serif">Serif</option>
@@ -117,17 +117,11 @@
             value=""
             oninput=" onFontColor(this.value)"
           />
-          <label class="icon-paint">
-            <img
-              src="icones/paint-board-and-brush.png"
-              alt=""
-            />
+          <label class="icon icon-paint">
+            <img src="icones/paint-board-and-brush.png" alt="" />
             <input type="color" oninput=" onFontColor(this.value)" />
           </label>
-          <div class="icon switch-line">
-            <img src="icones/up-down.png" alt="" onclick="onSwitchLine()" />
-          </div>
-        <!-- </div> -->
+        </div>
         <a
           href="#"
           class="download-btn"
@@ -137,34 +131,24 @@
         >
       </div>
     </div>
-    <!-- MY-DETAILS -->
-    <div class="bg-details-layout">
-      <div class="my-details main-layout">
-        <img src="img/shrek1.jpg" alt="" class="my-img" />
-        <div class="details-content">
-          <h2>Alon Kolker</h2>
-          <p>about me.....................................</p>
-          <div class="social-conteiner">
-          <div class="social facebook-logo"><img src="icones/facebook-logo.png" alt=""></i></div>
-          <div class="social linkedin-logo"><img src="icones/linkedin-logo.png" alt=""></div>
-          <div class="social github-logo"><img src="icones/github-logo.png" alt=""></div>
-        </div>
-        </div>
-      </div>
-    </div>
+
     <!-- FOOTER -->
     <footer>
-      <div><img
-        class="logo"
-        src="logo/Layer 2.png"
-        alt=""
-        onclick="renderGallery()"
-      /></div>
-      <div>all copy rights reserved 2019</div>
+      <div>
+        <img
+          class="logo"
+          src="logo/MAIN-LOGO.png"
+          alt=""
+          onclick="renderGallery()"
+        />
+      </div>
+      <div>Coffe Rights by Alon Kolker - Coding Academy May 22</div>
     </footer>
 
-
-    <script src="https://kit.fontawesome.com/e4465711a5.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/e4465711a5.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/memeService.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/download.js"></script>

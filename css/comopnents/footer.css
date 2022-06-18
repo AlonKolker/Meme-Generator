@@ -2,8 +2,19 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--clr1);
+	background: #c8d9eb; 
+
+
   text-align: center;
-  /* height: 12.937rem; */
-  height: 10vh;
+  height: 11vh;
+  margin-top: 10px;
+}
+
+.footer-meme{
+  height: 20vh;
+  padding: 1rem;
+}
+
+footer img.logo{
+  width: 150px;
 }

@@ -21,15 +21,32 @@ function renderGallery(ev = 0) {
 
   var elGallery = document.querySelector(".gallery")
   var elFilterBar = document.querySelector(".filter-bar")
-  var elDetails = document.querySelector(".my-details")
+  // var elDetails = document.querySelector(".my-details")
   var elMemeArea = document.querySelector(".meme-conteiner")
+  // elFooter = document.querySelector("footer")
+  var elFilter = document.querySelector(".filter-bg-layout")
+  elFilter.style.display= 'flex'
+  
 
   elGallery.style.display = "grid"
   elFilterBar.style.display = "flex"
-  elDetails.style.display = "flex"
+  // elDetails.style.display = "flex"
   elMemeArea.style.display = "none"
-
+  // elFooter.style.height = "10vh"
+  
   elGallery.innerHTML = strHtml
+
+}
+
+function toggleMenu() {
+  document.body.classList.toggle("menu-open")
+  elToggle = document.querySelector(".menu-toggle")
+  if (document.body.classList.contains("menu-open")) {
+    console.log(elToggle)
+    elToggle.innerHTML = `<i class="fa-solid fa-square-xmark"></i>`
+  } else {
+    elToggle.innerText = "☰"
+  }
 }
 
 function onTxtInput(userText) {
@@ -44,11 +61,16 @@ function renderCanvas() {
 }
 
 function onRenderMeme(el = 0) {
+  var elMemeArea = document.querySelector(".meme-conteiner")
   if (el !== 0) {
-    var elMemeArea = document.querySelector(".meme-conteiner")
     elMemeArea.style.display = "flex"
     gCurrImg = +el.id
   }
+  var elFilter = document.querySelector(".filter-bg-layout")
+  elFilter.style.display= 'none'
+  // elFooter = document.querySelector("footer")
+  // elFooter.style.height = "10vh"
+
   renderCanvas()
   hideGallery()
 }
@@ -112,5 +134,3 @@ function onAlignText(newPos) {
   alignText(newPos)
   renderCanvas()
 }
-
-
