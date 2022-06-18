@@ -214,7 +214,7 @@ function filterBy() {
   var imgsFilter = gImgs
   if (gFilterBy) {
     imgsFilter = gImgs.filter((img) =>
-      img.keyword.some((keyword) => keyword.includes(gFilterBy))
+      img.keyword.some((keyword) => keyword.toUpperCase().includes(gFilterBy.toUpperCase()))
     )
   }
   return imgsFilter

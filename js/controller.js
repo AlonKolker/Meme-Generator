@@ -165,11 +165,11 @@ function genCanvasFromStorage() {
 //FILTER BY KEYWORD
 function onSelecetedWord(text) {
   setFilterBy(text)
-  console.log(text);
   var elTxt = document.querySelector(`.${text}`)
   gKeywordSearchCountMap[text]++
-  renderKeyWords()
   elTxt.style.fontSize = `${gKeywordSearchCountMap[text]}` + `px`
+  renderGallery()
+  renderKeyWords()
   saveKeyWordsToStorage()
 }
 
