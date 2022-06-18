@@ -23,11 +23,11 @@ nav.main-nav {
   justify-content: space-between;
 }
 
-.a-gallery {
-  margin-inline-end: 2rem;
+.a-gallery, .a-mems {
+  margin-inline-end: 1rem;
 }
 .a-about,
-.a-gallery {
+.a-gallery, .a-mems {
   font-family: Montserrat-Regular;
   font-size: 1.18rem;
   color: var(--clr3);
@@ -36,7 +36,7 @@ nav.main-nav {
 }
 
 .a-about:hover,
-.a-gallery:hover {
+.a-gallery:hover, .a-mems:hover {
   border-bottom: 1px solid black;
 }
 

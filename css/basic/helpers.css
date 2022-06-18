@@ -3,3 +3,12 @@
   padding: 0;
   text-decoration: none;
 }
+
+.flex{
+  display: flex;
+}
+
+.jestify-content-center{
+  justify-content: center;
+  justify-items: center;
+}

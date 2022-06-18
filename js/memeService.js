@@ -1,7 +1,11 @@
 const gCanvas = document.getElementById("meme-Canvas")
 const gCtx = gCanvas.getContext("2d")
-var gKeywordSearchCountMap = { funny: 12, happy: 16 }
+var gKeywordSearchCountMap = {}
+var gFilterBy = ""
+
+
 const STORAGE_KEY = "memsDB"
+const KEY_WORDS = "keywords_db"
 
 var gImgs = []
 var gCurrImg
@@ -21,18 +25,40 @@ var gMeme = {
   ],
 }
 
+//NEED TO BE IN THE CONTROLLER
+function onloadKeyWords() {
+  gKeywordSearchCountMap = loadFromStorage(KEY_WORDS)
+  if (!gKeywordSearchCountMap || gKeywordSearchCountMap === {}) {
+    gKeywordSearchCountMap = {
+      president: 16,
+      man: 16,
+      animal: 16,
+      baby: 16,
+      cat: 16,
+      dog: 16,
+      obama: 16,
+      trump: 16,
+    }
+  }
+
+  saveKeyWordsToStorage()
+
+  renderKeyWords()
+}
+
+// BUILD IMG OBJECT
 function buildGimgs(nums = 16) {
   const keywords = [
-    ["president", "man"],
+    ["president", "man", "trump"],
     ["dog", "animal"],
-    ["baby", "animal"],
-    ["animal"],
+    ["baby", "animal", "dog"],
+    ["animal", "cat"],
     ["baby"],
     ["man"],
     ["baby"],
     ["man"],
     ["baby"],
-    ["president"],
+    ["president", "obama;"],
     ["man"],
     ["man"],
     ["man"],
@@ -43,18 +69,20 @@ function buildGimgs(nums = 16) {
   for (var i = 1; i < nums + 1; i++) {
     gImgs.push({ id: i, url: `img/${i}.jpg` })
   }
-  gImgs.forEach((img, idx) => (img["keyeord"] = keywords[idx]))
+  gImgs.forEach((img, idx) => (img["keyword"] = keywords[idx]))
   return gImgs
 }
 
 function getMeme() {
   return gMeme
 }
+
 function getMemeIdx() {
   var currGmemeIdx = gMeme.selectedLineIdx
   return currGmemeIdx
 }
 
+//GET TXT INPUT
 function txtInput(text) {
   gMeme.lines[getMemeIdx()].txt = text
 }
@@ -72,6 +100,7 @@ function drawText(text) {
     gCtx.fillText(text[i].txt, text[i].posX, text[i].posY) //Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text[i].txt, text[i].posX, text[i].posY) //Draws (strokes) a given text at the given (x, y) position.
   }
+  //IN CASE OF DWONLOAD
   if (gIsDownload !== true) drawRect(gMeme.lines[getMemeIdx()])
 }
 
@@ -92,6 +121,7 @@ function lineDelete() {
 
   gMeme.lines.pop()
 }
+
 function downOrUpLine(plusOrMines) {
   gMeme.lines[getMemeIdx()].posY += 5 * plusOrMines
 }
@@ -137,30 +167,14 @@ function addLine() {
   }
 }
 
-// function deleteRect(text){
-//   console.log(text);
-//     console.log(text.txt)
-//     var txtWid = gCtx.measureText(text.txt).width
-//     var x = text.posX
-//     var y = text.posY
-//     console.log(gCtx.measureText(text.txt).width)
-//     gCtx.beginPath()
-//     gCtx.clearRect(x, y+5, txtWid, -text.size)
-//     // gCtx.strokeStyle = none
-//     gCtx.stroke()
-
-// }
-
-// var gDeleteRect = false
-
 function switchLine() {
   const leng = gMeme.lines.length
-  // gDeleteRect = false
-  // deleteRect(gMeme.lines[getMemeIdx()])
+
   renderCanvas()
   rotateCyclic(gMeme.lines, leng)
 }
 
+//CYCLIC FUNC FOR SWITCH LINES
 function rotateCyclic(arr, n) {
   var x = arr[n - 1],
     i
@@ -189,6 +203,19 @@ function alignText(alignTo) {
   }
 }
 
-function onSaveMeme() {
-  saveToStorage(STORAGE_KEY, gMeme)
+
+
+
+function setFilterBy(txt) {
+  gFilterBy = txt
+}
+
+function filterBy() {
+  var imgsFilter = gImgs
+  if (gFilterBy) {
+    imgsFilter = gImgs.filter((img) =>
+      img.keyword.some((keyword) => keyword.includes(gFilterBy))
+    )
+  }
+  return imgsFilter
 }
