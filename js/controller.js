@@ -1,5 +1,5 @@
 var gInitEv
-
+var gIsDownload = false
 function onInit(ev) {
   renderGallery(ev)
 }
@@ -21,28 +21,22 @@ function renderGallery(ev = 0) {
 
   var elGallery = document.querySelector(".gallery")
   var elFilterBar = document.querySelector(".filter-bar")
-  // var elDetails = document.querySelector(".my-details")
   var elMemeArea = document.querySelector(".meme-conteiner")
-  // elFooter = document.querySelector("footer")
   var elFilter = document.querySelector(".filter-bg-layout")
-  elFilter.style.display= 'flex'
-  
 
+  elFilter.style.display = "flex"
   elGallery.style.display = "grid"
   elFilterBar.style.display = "flex"
-  // elDetails.style.display = "flex"
   elMemeArea.style.display = "none"
-  // elFooter.style.height = "10vh"
-  
-  elGallery.innerHTML = strHtml
 
+  elGallery.innerHTML = strHtml
 }
 
 function toggleMenu() {
   document.body.classList.toggle("menu-open")
   elToggle = document.querySelector(".menu-toggle")
+
   if (document.body.classList.contains("menu-open")) {
-    console.log(elToggle)
     elToggle.innerHTML = `<i class="fa-solid fa-square-xmark"></i>`
   } else {
     elToggle.innerText = "☰"
@@ -67,9 +61,7 @@ function onRenderMeme(el = 0) {
     gCurrImg = +el.id
   }
   var elFilter = document.querySelector(".filter-bg-layout")
-  elFilter.style.display= 'none'
-  // elFooter = document.querySelector("footer")
-  // elFooter.style.height = "10vh"
+  elFilter.style.display = "none"
 
   renderCanvas()
   hideGallery()
@@ -79,10 +71,8 @@ function hideGallery() {
   // clean the gallery
   var elGallery = document.querySelector(".gallery")
   var elFilterBar = document.querySelector(".filter-bar")
-  var elDetails = document.querySelector(".my-details")
   elGallery.style.display = "none"
   elFilterBar.style.display = "none"
-  elDetails.style.display = "none"
 }
 
 function renderImg(imgIdx = gCurrImg) {

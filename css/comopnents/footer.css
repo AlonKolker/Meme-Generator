@@ -3,6 +3,7 @@ footer {
   flex-direction: column;
   justify-content: center;
 	background: #c8d9eb; 
+  border-radius: 12px;
 
 
   text-align: center;

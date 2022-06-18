@@ -62,5 +62,9 @@
 }
 
 input[type="color"] {
-  display: none;
+  /* display: none; */
+  position: absolute;
+  z-index:-1;
+  /* left: 500px; */
+  left: 65vw;
 }

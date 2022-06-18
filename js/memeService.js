@@ -1,6 +1,7 @@
 const gCanvas = document.getElementById("meme-Canvas")
 const gCtx = gCanvas.getContext("2d")
 var gKeywordSearchCountMap = { funny: 12, happy: 16 }
+const STORAGE_KEY = "memsDB"
 
 var gImgs = []
 var gCurrImg
@@ -64,7 +65,6 @@ function clearCanvas() {
 
 function drawText(text) {
   for (var i = 0; i <= gMeme.selectedLineIdx; i++) {
-    // drawRect(text[i])
     gCtx.lineWidth = 1.5
     gCtx.font = `${text[i].size}px ${text[i].font}`
     gCtx.fillStyle = text[i].color
@@ -72,6 +72,17 @@ function drawText(text) {
     gCtx.fillText(text[i].txt, text[i].posX, text[i].posY) //Draws (fills) a given text at the given (x, y) position.
     gCtx.strokeText(text[i].txt, text[i].posX, text[i].posY) //Draws (strokes) a given text at the given (x, y) position.
   }
+  if (gIsDownload !== true) drawRect(gMeme.lines[getMemeIdx()])
+}
+
+function drawRect(text) {
+  var txtWid = gCtx.measureText(text.txt).width
+  var x = text.posX
+  var y = text.posY
+  gCtx.beginPath()
+  gCtx.rect(x, y + 5, txtWid, -text.size)
+  gCtx.strokeStyle = "red"
+  gCtx.stroke()
 }
 
 function lineDelete() {
@@ -126,8 +137,27 @@ function addLine() {
   }
 }
 
+// function deleteRect(text){
+//   console.log(text);
+//     console.log(text.txt)
+//     var txtWid = gCtx.measureText(text.txt).width
+//     var x = text.posX
+//     var y = text.posY
+//     console.log(gCtx.measureText(text.txt).width)
+//     gCtx.beginPath()
+//     gCtx.clearRect(x, y+5, txtWid, -text.size)
+//     // gCtx.strokeStyle = none
+//     gCtx.stroke()
+
+// }
+
+// var gDeleteRect = false
+
 function switchLine() {
   const leng = gMeme.lines.length
+  // gDeleteRect = false
+  // deleteRect(gMeme.lines[getMemeIdx()])
+  renderCanvas()
   rotateCyclic(gMeme.lines, leng)
 }
 
@@ -139,19 +169,26 @@ function rotateCyclic(arr, n) {
 }
 
 function alignText(alignTo) {
-  console.log(alignTo)
   switch (alignTo) {
     case "left":
       gMeme.lines[getMemeIdx()].posX = gCanvas.width - gCanvas.width + 10
       break
     case "right":
       gMeme.lines[getMemeIdx()].posX =
-        gCanvas.width - gCtx.measureText(gMeme.lines[getMemeIdx()]).width / 1.3
+        gCanvas.width -
+        gCtx.measureText(gMeme.lines[getMemeIdx()].txt).width -
+        10
       break
     case "center":
       gMeme.lines[getMemeIdx()].posX =
-        gCanvas.width / 2 -
-        gCtx.measureText(gMeme.lines[getMemeIdx()]).width / 2
+        (gCanvas.width -
+          gCtx.measureText(gMeme.lines[getMemeIdx()].txt).width) /
+        2
+
       break
   }
+}
+
+function onSaveMeme() {
+  saveToStorage(STORAGE_KEY, gMeme)
 }

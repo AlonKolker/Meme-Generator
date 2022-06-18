@@ -4,8 +4,8 @@
 
 .header-backround {
   background: #c8d9eb;
-
   height: 7rem;
+  border-radius: 12px;
 }
 header {
   display: flex;
@@ -16,11 +16,9 @@ header {
   padding: 0 2rem;
 }
 
-
-
 .menu-toggle {
   display: none;
-background-color: var(--clr1);
+  background-color: var(--clr1);
 
   border: none;
   font-size: xx-large;
