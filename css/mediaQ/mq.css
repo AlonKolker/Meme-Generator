@@ -52,6 +52,9 @@
   .textinput {
     margin-bottom: 1.4rem;
   }
+  .filter-bar {
+    flex-direction: column;
+  }
 }
 
 /* small */

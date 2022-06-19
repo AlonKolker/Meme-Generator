@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Meme Gen - Alon.k</title>
+    <title>Meme Generator - A.k</title>
   </head>
   <body onload="onInit(event)">
     <!-- HEADER -->
@@ -21,161 +21,165 @@
           <a href="#" class="a-gallery clean-a" onclick="renderGallery()"
             >Gallery</a
           >
-          <a
-            href="#"
-            class="a-mems clean-a"
-            onclick="renderSavedMems()
-          "
-            >Mems</a
-          >
+         
           <a href="#" class="a-about clean-a">About</a>
         </nav>
         <button onclick="toggleMenu(this)" class="menu-toggle">☰</button>
       </header>
     </div>
-    <div class="filter-bg-layout">
-      <div class="filter-bar main-layout">
-        <input
-          class="txt-filter"
-          oninput="onFilterBy(this.value)"
-          type="text"
-          placeholder="Enter search keyword  🔍"
-        />
-        <!-- KEYWORDS -->
-        <div class="key-words">
-          <a class="clean-a baby" href="#" onclick="onSelecetedWord('baby')"
-            >baby</a
-          >
-          <a class="clean-a man" href="#" onclick="onSelecetedWord('man')"
-            >man</a
-          >
-          <a class="clean-a animal" href="#" onclick="onSelecetedWord('animal')"
-            >animal</a
-          >
-          <a class="clean-a dog" href="#" onclick="onSelecetedWord('dog')"
-            >dog</a
-          >
-          <a
-            class="clean-a president"
-            href="#"
-            onclick="onSelecetedWord('president')"
-            >president</a
-          >
-          <a class="clean-a cat" href="#" onclick="onSelecetedWord('cat')"
-            >cat</a
-          >
-          <a class="clean-a obama" href="#" onclick="onSelecetedWord('obama')"
-            >obama</a
-          >
-          <a class="clean-a trump" href="#" onclick="onSelecetedWord('trump')"
-            >trump</a
-          >
-        </div>
-      </div>
-    </div>
-    <!-- GALLERY -->
-    <div class="gallery main-layout"></div>
-    <!--MEME AREA  -->
-    <div class="main-layout meme-conteiner" style="display: none">
-      <canvas
-        class="my-canvas"
-        id="meme-Canvas"
-        width="500"
-        height="500"
-      ></canvas>
-      <div class="tools-box">
-        <input
-          class="textinput"
-          oninput="onTxtInput(this.value)"
-          type="text"
-          placeholder="Type text over here"
-        />
-        <div class="tools-conteiner">
-          <div class="icon switch-line">
-            <img src="icones/up-down.png" alt="" onclick="onSwitchLine()" />
-          </div>
-          <div class="plus icon" onclick="onAddLine()">
-            <img src="icones/add.png" alt="" />
-          </div>
-          <div class="up icon" onclick="onDownUpLine(-1)">
-            <img src="icones/arrow-upward.png" alt="" />
-          </div>
-          <div class="down icon" onclick="onDownUpLine(1)">
-            <img src="icones/down-arrow.png" alt="" />
-          </div>
-          <div class="trash icon" onclick="onLineDelete()">
-            <img src="icones/trash.png" alt="" />
-          </div>
-          <div class="increse-font icon" onclick="onFontSize(1)">
-            <img src="icones/increase font - icon.png" alt="" />
-          </div>
-          <div class="dec-font icon" onclick="onFontSize(-1)">
-            <img src="icones/decrease font - icon.png" alt="" />
-          </div>
-          <div class="align-left icon">
-            <img
-              src="icones/align-to-left.png"
-              alt=""
-              onclick="onAlignText('left')"
-            />
-          </div>
-          <div class="align-center icon">
-            <img
-              src="icones/center-text-alignment.png"
-              alt=""
-              onclick="onAlignText('center')"
-            />
-          </div>
-          <div class="align-right icon">
-            <img
-              src="icones/align-to-right.png"
-              alt=""
-              onclick="onAlignText('right')"
-            />
-          </div>
-          <select class="font-change" onclick="onChangeFont(this.value)">
-            <option value="Impact">Impact</option>
-            <option value="Serif">Serif</option>
-          </select>
+    <div class="main-content">
+      <div class="filter-bg-layout">
+        <div class="filter-bar main-layout">
           <input
-            class="color-pick"
-            type="color"
-            id="head"
-            name="head"
-            value=""
-            oninput=" onFontColor(this.value)"
+            class="txt-filter"
+            oninput="onFilterBy(this.value)"
+            type="text"
+            placeholder="Enter search keyword  🔍"
           />
-          <label class="icon icon-paint">
-            <img src="icones/paint-board-and-brush.png" alt="" />
-            <input type="color" oninput=" onFontColor(this.value)" />
-          </label>
-        </div>
-        <a
-          href="#"
-          class="word-btn download-btn"
-          onclick="downloadImg(this)"
-          download="my-awsome-meme.jpg"
-          >DOWNLOAD YOUR MEME</a
-        >
-        <div>
-          <div
-            class="word-btn flex jestify-content-center"
-            onclick="saveCanvasToStorage()"
-          >
-            SAVE THIS MEME FOR LATER
+          <!-- KEYWORDS -->
+          <div class="key-words">
+            <a class="clean-a baby" href="#" onclick="onSelecetedWord('baby')"
+              >baby</a
+            >
+            <a class="clean-a man" href="#" onclick="onSelecetedWord('man')"
+              >man</a
+            >
+            <a
+              class="clean-a animal"
+              href="#"
+              onclick="onSelecetedWord('animal')"
+              >animal</a
+            >
+            <a class="clean-a dog" href="#" onclick="onSelecetedWord('dog')"
+              >dog</a
+            >
+            <a
+              class="clean-a president"
+              href="#"
+              onclick="onSelecetedWord('president')"
+              >president</a
+            >
+            <a class="clean-a cat" href="#" onclick="onSelecetedWord('cat')"
+              >cat</a
+            >
+            <a class="clean-a obama" href="#" onclick="onSelecetedWord('obama')"
+              >obama</a
+            >
+            <a class="clean-a trump" href="#" onclick="onSelecetedWord('trump')"
+              >trump</a
+            >
+            <a class="clean-a all" href="#" onclick="onSelecetedWord('')"
+              >All</a
+            >
           </div>
-          <br />
-          <div
-            class="word-btn flex jestify-content-center"
-            onclick="genCanvasFromStorage()
-          "
+        </div>
+      </div>
+      <!-- GALLERY -->
+      <div class="gallery main-layout"></div>
+    </div>
+    <!--MEME AREA  -->
+    <div class="meme-page">
+      <div class="main-layout meme-conteiner">
+        <canvas
+          class="my-canvas"
+          id="meme-Canvas"
+          width="500"
+          height="500"
+        ></canvas>
+        <div class="tools-box">
+          <input
+            id="text-input"
+            class="textinput"
+            oninput="onTxtInput(this.value)"
+            type="text"
+            placeholder="Enter your text over here!!"
+          />
+          <div class="tools-conteiner">
+            <div class="icon switch-line">
+              <img src="icones/up-down.png" alt="" onclick="onSwitchLine()" />
+            </div>
+            <div class="plus icon" onclick="onAddLine()">
+              <img src="icones/add.png" alt="" />
+            </div>
+            <div class="up icon" onclick="onDownUpLine(-1)">
+              <img src="icones/arrow-upward.png" alt="" />
+            </div>
+            <div class="down icon" onclick="onDownUpLine(1)">
+              <img src="icones/down-arrow.png" alt="" />
+            </div>
+            <div class="trash icon" onclick="onLineDelete()">
+              <img src="icones/trash.png" alt="" />
+            </div>
+            <div class="increse-font icon" onclick="onFontSize(1)">
+              <img src="icones/increase font - icon.png" alt="" />
+            </div>
+            <div class="dec-font icon" onclick="onFontSize(-1)">
+              <img src="icones/decrease font - icon.png" alt="" />
+            </div>
+            <div class="align-left icon">
+              <img
+                src="icones/align-to-left.png"
+                alt=""
+                onclick="onAlignText('left')"
+              />
+            </div>
+            <div class="align-center icon">
+              <img
+                src="icones/center-text-alignment.png"
+                alt=""
+                onclick="onAlignText('center')"
+              />
+            </div>
+            <div class="align-right icon">
+              <img
+                src="icones/align-to-right.png"
+                alt=""
+                onclick="onAlignText('right')"
+              />
+            </div>
+            <select class="font-change" onclick="onChangeFont(this.value)">
+              <option value="Impact">Impact</option>
+              <option value="Serif">Serif</option>
+            </select>
+            <input
+              class="color-pick"
+              type="color"
+              id="head"
+              name="head"
+              value=""
+              oninput=" onFontColor(this.value)"
+            />
+            <label class="icon icon-paint">
+              <img src="icones/paint-board-and-brush.png" alt="" />
+              <input type="color" oninput=" onFontColor(this.value)" />
+            </label>
+          </div>
+          <a
+            href="#"
+            class="word-btn download-btn"
+            onclick="downloadImg(this)"
+            download="my-awsome-meme.jpg"
+            >DOWNLOAD YOUR MEME</a
           >
-            CONTINUE THE LAST SAVED MEME
+          <div>
+            <div
+              class="word-btn flex jestify-content-center"
+              onclick="onSaveCanvasToStorage()"
+            >
+              SAVE THIS MEME FOR LATER
+            </div>
+            <br />
+            <div
+              class="word-btn flex jestify-content-center"
+              onclick="onGetCanvasFromStorage()
+          "
+            >
+              CONTINUE THE LAST SAVED MEME
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <!-- FOOTER -->
     <footer>
       <div>
@@ -194,9 +198,12 @@
       src="https://kit.fontawesome.com/e4465711a5.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/storage.service.js"></script>
-    <script src="js/memeService.js"></script>
-    <script src="js/controller.js"></script>
+    <script src="js/galleryController.js"></script>
+    <script src="js//service/galleryService.js"></script>
+    <script src="js///service/storage.service.js"></script>
+    <script src="js/memeController.js"></script>
+    <script src="js//service/memeService.js"></script>
     <script src="js/download.js"></script>
+
   </body>
 </html>
